@@ -10,7 +10,7 @@ BIN_DIR := bin
 EXE     := $(BIN_DIR)/app
 
 SRC := $(wildcard $(SRC_DIR)/*.c)
-OBJ := $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+OBJ := $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
 
 .PHONY: all clean
 
